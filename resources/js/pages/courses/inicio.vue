@@ -1,5 +1,5 @@
 <script setup>
-defineProps(['students']);
+    defineProps(['courses']);
 </script>
 
 <template>
@@ -8,19 +8,13 @@ defineProps(['students']);
             <thead>
                 <tr>
                     <th>Nome</th>
-                    <th>Email</th>
-                    <th>Número</th>
-                    <th>Data de inscrição</th>
-                    <th>Arquitetura</th>
+                    <th></th>
                 </tr>
             </thead>
             
             <tbody>
-                <tr v-for="student in students" :key="student.id">
-                    <td>{{ student.first_name + " " + student.last_name }}</td>
-                    <td>{{ student.email }}</td>
-                    <td>{{ student.number }}</td>
-                    <td>{{ student.created_at }}</td>
+                <tr v-for="course in courses" :key="courses.id">
+                    <td>{{ course.name}}</td>
                     <td><button>Ver</button><button>Editar</button></td>
                 </tr>
             </tbody>
