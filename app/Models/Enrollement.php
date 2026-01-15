@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 
-class Level extends Model
+class Enrollement extends Model
 {
-
     protected $fillable = [
-        'course_id',
-        'year',
-    ];
+        'student_id',
+        'level_id',
+        'enrollement_date',
+    ];  
 }

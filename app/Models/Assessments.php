@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
-
-class Level extends Model
+class assessments extends Model
 {
-
     protected $fillable = [
-        'course_id',
-        'year',
+        'subject_id',
+        'class_id',
+        'semester_id',
+        'type',
+        'weight',
     ];
 }

@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 
-class Level extends Model
+class TeachingAssignment extends Model
 {
-
     protected $fillable = [
-        'course_id',
-        'year',
+        'teacher_id',
+        'subject_id',
+        'class_id',
+        'semester_id',
     ];
 }
