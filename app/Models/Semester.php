@@ -9,5 +9,5 @@ class Semester extends Model
 {
     use HasUuids;
 
-    protected $fillable = [ "name", "start_at", "end_at" ];
+    protected $fillable = [ "name", "starts_at", "ends_at" ];
 }

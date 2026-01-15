@@ -9,5 +9,5 @@ class AcademicYear extends Model
 {
     use HasUuids;
 
-    protected $fillable = [ "name", "start_at", "end_at", "is_active" ];
+    protected $fillable = [ "name", "starts_at", "ends_at", "is_active" ];
 }
