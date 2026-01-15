@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('enrollements', function (Blueprint $table) {
+        Schema::create('course_subjects', function (Blueprint $table) {
             $table->uuid('id')->unique()->primary();
-            $table->foreignUuid('student_id')->constrained();
-            $table->foreignUuid('class_id')->constrained();
-            $table->foreignUuid('academic_year_id')->constrained();
-            $table->enum('status', ['active', 'transferred', 'dropped']);
-            $table->unique(['student_id', 'academic_year_id']);
+            $table->foreignUuid('course_id')->constrained();
+            $table->foreignUuid('subject_id')->constrained();
+            $table->foreignUuid('level_id')->constrained();
+            $table->unique(['course_id', 'subject_id', 'level_id']);
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('enrollements');
+        Schema::dropIfExists('course_subjects');
     }
 };

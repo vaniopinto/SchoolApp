@@ -3,14 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Concerns\HasUuids; 
 
-class Level extends Model
+class CourseSubject extends Model
 {
-    use HasUuids;
-    
     protected $fillable = [
         'course_id',
-        'year',
+        'subject_id',
+        'level_id',
     ];
 }

@@ -12,9 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('levels', function (Blueprint $table) {
-            
             $table->uuid('id')->unique()->primary();
-            $table->foreignId('course_id')->constrained()->cascadeOnDelete();
+            $table->foreignUuid('course_id')->constrained()->cascadeOnDelete();
             $table->unsignedTinyInteger('year'); // 1,2,3,4
             $table->timestamps();
         });

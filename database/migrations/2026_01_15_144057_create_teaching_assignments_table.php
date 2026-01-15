@@ -16,10 +16,10 @@ return new class extends Migration
             $table->uuid('id')->unique()->primary();
             $table->foreignId('teacher_id')->constrained();
             $table->foreignId('subject_id')->constrained();
-            $table->foreignId('class_id')->constrained();
+            $table->foreignId('class_group_id')->constrained();
             $table->foreignId('semester_id')->constrained();
             $table->timestamps();
-            $table->timestamps();
+            
         });
     }
      

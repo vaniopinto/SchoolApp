@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('assessments', function (Blueprint $table) {
              $table->uuid('id')->unique()->primary();
-             $table->foreignId('subject_id')->constrained();
-             $table->foreignId('class_id')->constrained();
-             $table->foreignId('semester_id')->constrained();
+             $table->foreignUuid('subject_id')->constrained();
+             $table->foreignUuid('class_group_id')->constrained();
+             $table->foreignUuid('semester_id')->constrained();
              $table->enum('type', ['test', 'exam', 'project']);
              $table->decimal('weight', 5, 2);
              $table->timestamps();
-            $table->timestamps();
+
         });
     }
 
