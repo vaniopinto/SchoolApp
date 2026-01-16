@@ -15,7 +15,6 @@ return new class extends Migration
             $table->uuid('id')->unique()->primary();
             $table->string('name');
             $table->string('code')->unique();
-            $table->unsignedTinyInteger('credits');
             $table->timestamps();
         });
     }

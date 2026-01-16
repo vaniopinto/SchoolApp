@@ -12,14 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('teaching_assignments', function (Blueprint $table) {
-            
             $table->uuid('id')->unique()->primary();
-            $table->foreignId('teacher_id')->constrained();
-            $table->foreignId('subject_id')->constrained();
-            $table->foreignId('class_group_id')->constrained();
-            $table->foreignId('semester_id')->constrained();
+            $table->foreignUuid('teacher_id')->constrained();
+            $table->foreignUuid('subject_id')->constrained();
+            $table->foreignUuid('class_group_id')->constrained();
+            $table->foreignUuid('semester_id')->constrained();
             $table->timestamps();
-            
         });
     }
      

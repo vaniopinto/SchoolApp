@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('grades', function (Blueprint $table) {
             $table->uuid('id')->unique()->primary();
-            $table->foreignId('assessment_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('student_id')->constrained();
+            $table->foreignUuid('assessment_id')->constrained()->cascadeOnDelete();
+            $table->foreignUuid('student_id')->constrained();
             $table->decimal('score', 5, 2);
-             $table->unique(['assessment_id', 'student_id']);
             $table->timestamps();
+            $table->unique(['assessment_id', 'student_id']);
         });
     }
 

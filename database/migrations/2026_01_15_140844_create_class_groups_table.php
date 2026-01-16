@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('class_groups', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->unique()->primary();
             $table->foreignUuid('course_id')->constrained();
             $table->foreignUuid('level_id')->constrained();
             $table->foreignUuid('academic_year_id')->constrained();
-            $table->foreignUuid('shift_id')->constrained();
+            $table->foreignId('shift_id')->constrained();
             $table->string('code'); // A, B, C
             $table->timestamps();
         });
