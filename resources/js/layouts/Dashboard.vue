@@ -14,12 +14,19 @@ defineProps({
 
 <template>
   <Head :title="title"></Head>
-  <Sidebar />
-  <Top />
 
-  <slot name="header" />
-  <slot name="body"></slot>
-  <slot name="extra"></slot>
-  
-  <Footer />
+  <a href="#content" class="visually-hidden skip-link">Skip to main content</a>
+
+  <div class="page">
+    <Sidebar />
+    <Top />
+
+    <div class="page-wrapper">
+      <slot name="header" />
+      <slot name="body" />
+      <slot name="extra" />
+      
+      <Footer />
+    </div>
+  </div>
 </template>
