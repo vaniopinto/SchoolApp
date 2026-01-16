@@ -16,6 +16,4 @@ Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/students', [StudentController::class, 'index']);
-Route::get('/courses',[CoursesController::class,'index']);
 require __DIR__.'/settings.php';
