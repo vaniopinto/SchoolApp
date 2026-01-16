@@ -1,0 +1,1 @@
+<template>Todos os direitos reservados</template>

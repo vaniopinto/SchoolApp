@@ -1,4 +1,7 @@
 <script setup>
+import Footer from '@/components/Footer.vue';
+import Sidebar from '@/components/Menus/Sidebar.vue';
+import Top from '@/components/Menus/Top.vue';
 import { Head } from '@inertiajs/vue3';
 
 defineProps({
@@ -11,10 +14,12 @@ defineProps({
 
 <template>
   <Head :title="title"></Head>
-  Menu Lateral <br>
-  Menu do Topo <br>
+  <Sidebar />
+  <Top />
+
   <slot name="header" />
-  <slot></slot>
+  <slot name="body"></slot>
   <slot name="extra"></slot>
-  Rodapé<br>
+  
+  <Footer />
 </template>

@@ -1,0 +1,1 @@
+<template>Qualqeur coisa</template>
