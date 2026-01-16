@@ -1,8 +1,9 @@
 <script setup>
-import Footer from '@/components/Footer.vue';
-import Sidebar from '@/components/Menus/Sidebar.vue';
-import Top from '@/components/Menus/Top.vue';
 import { Head } from '@inertiajs/vue3';
+import Top from '@/components/Menus/Top.vue';
+import Sidebar from '@/components/Menus/Sidebar.vue';
+import Footer from '@/components/Footer.vue';
+import ThemeSettings from '@/components/ThemeSettings.vue';
 
 defineProps({
   title: {
@@ -29,4 +30,6 @@ defineProps({
       <Footer />
     </div>
   </div>
+
+  <ThemeSettings />
 </template>
