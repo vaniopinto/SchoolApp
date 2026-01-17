@@ -77,24 +77,24 @@ onMounted(() => {
       <div class="offcanvas-body d-flex flex-column">
         <div>
           <div class="mb-4">
-            <label class="form-label">Color mode</label>
-            <p class="form-hint">Choose the color mode for your app.</p>
+            <label class="form-label">Modo de Cor</label>
+            <p class="form-hint">Escolhe o modo de cor do seu aplicativo.</p>
             <label class="form-check">
               <div class="form-selectgroup-item">
                 <input type="radio" name="theme" value="light" class="form-check-input" checked />
-                <div class="form-check-label">Light</div>
+                <div class="form-check-label">Branco</div>
               </div>
             </label>
             <label class="form-check">
               <div class="form-selectgroup-item">
                 <input type="radio" name="theme" value="dark" class="form-check-input" />
-                <div class="form-check-label">Dark</div>
+                <div class="form-check-label">Escuro</div>
               </div>
             </label>
           </div>
           <div class="mb-4">
-            <label class="form-label">Color scheme</label>
-            <p class="form-hint">The perfect color mode for your app.</p>
+            <label class="form-label">Esquema de Cor</label>
+            <p class="form-hint"> O mode de cor perfeito para a tua aplicação.</p>
             <div class="row g-2">
               <div class="col-auto">
                 <label class="form-colorinput">
@@ -171,8 +171,8 @@ onMounted(() => {
             </div>
           </div>
           <div class="mb-4">
-            <label class="form-label">Font family</label>
-            <p class="form-hint">Choose the font family that fits your app.</p>
+            <label class="form-label">Família tipográfica</label>
+            <p class="form-hint"> Escolhe a familia de fonte que cabe na tua aplicação.\</p>
             <div>
               <label class="form-check">
                 <div class="form-selectgroup-item">
@@ -201,8 +201,8 @@ onMounted(() => {
             </div>
           </div>
           <div class="mb-4">
-            <label class="form-label">Theme base</label>
-            <p class="form-hint">Choose the gray shade for your app.</p>
+            <label class="form-label">Base do tema</label>
+            <p class="form-hint">Escolhe o tom de cinza do seu aplicativo .</p>
             <div>
               <label class="form-check">
                 <div class="form-selectgroup-item">
@@ -219,26 +219,26 @@ onMounted(() => {
               <label class="form-check">
                 <div class="form-selectgroup-item">
                   <input type="radio" name="theme-base" value="zinc" class="form-check-input" />
-                  <div class="form-check-label">Zinc</div>
+                  <div class="form-check-label">Zinco</div>
                 </div>
               </label>
               <label class="form-check">
                 <div class="form-selectgroup-item">
                   <input type="radio" name="theme-base" value="neutral" class="form-check-input" />
-                  <div class="form-check-label">Neutral</div>
+                  <div class="form-check-label">Neutro</div>
                 </div>
               </label>
               <label class="form-check">
                 <div class="form-selectgroup-item">
                   <input type="radio" name="theme-base" value="stone" class="form-check-input" />
-                  <div class="form-check-label">Stone</div>
+                  <div class="form-check-label">Pedra</div>
                 </div>
               </label>
             </div>
           </div>
           <div class="mb-4">
-            <label class="form-label">Corner Radius</label>
-            <p class="form-hint">Choose the border radius factor for your app.</p>
+            <label class="form-label">Arredondamento dos cantod</label>
+            <p class="form-hint">Escolha o fator de arredondamento da borda do seu aplicativo.</p>
             <div>
               <label class="form-check">
                 <div class="form-selectgroup-item">
