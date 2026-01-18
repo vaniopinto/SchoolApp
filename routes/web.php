@@ -6,12 +6,8 @@ use Laravel\Fortify\Features;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CoursesController;
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canRegister' => Features::enabled(Features::registration()),
-    ]);
-})->name('home');
 
+Route::redirect('/', '/dashboard');
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
