@@ -1,3 +1,13 @@
+<script setup>
+import { router } from "@inertiajs/vue3";
+
+const logout = () => {
+  router.post("logout", {
+    onFinish: () => (window.location = route("login")),
+  });
+};
+</script>
+
 <template>
   <!-- BEGIN NAVBAR  -->
   <header class="navbar navbar-expand-md d-none d-lg-flex d-print-none">
@@ -8,6 +18,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <!-- END NAVBAR TOGGLER -->
+
       <div class="navbar-nav flex-row order-md-last ms-auto">
         <div class="d-none d-md-flex">
           <!-- BEGIN THEME TOGGLE -->
@@ -21,6 +32,7 @@
                 <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454l0 .008" />
               </svg>
             </a>
+
             <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Enable light mode"
               data-bs-toggle="tooltip" data-bs-placement="bottom">
               <!-- Download SVG icon from http://tabler.io/icons/icon/sun -->
@@ -41,10 +53,11 @@
           <a href="#" class="nav-link d-flex lh-1 p-0 px-2" data-bs-toggle="dropdown" aria-label="Open user menu">
             <!-- <span class="avatar avatar-sm" style="background-image: url(./static/avatars/000m.jpg)"> </span> -->
             <div class="d-none d-xl-block ps-2">
-              <div>Paweł Kuna</div>
-              <div class="mt-1 small text-secondary">UI Designer</div>
+              <div>{{ $page.props.auth.user.name }}</div>
+              <div class="mt-1 small text-secondary">Administrador</div>
             </div>
           </a>
+
           <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
             <a class="dropdown-item"
               href="./profile.html"><!-- Download SVG icon from http://tabler.io/icons/icon/user -->
@@ -54,30 +67,23 @@
                 <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
                 <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
               </svg>
-              Profile</a>
-            <a class="dropdown-item" href="#"><!-- Download SVG icon from http://tabler.io/icons/icon/chart-pie -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
-                focusable="false" class="icon dropdown-item-icon icon-2">
-                <path d="M10 3.2a9 9 0 1 0 10.8 10.8a1 1 0 0 0 -1 -1h-6.8a2 2 0 0 1 -2 -2v-7a.9 .9 0 0 0 -1 -.8" />
-                <path d="M15 3.5a9 9 0 0 1 5.5 5.5h-4.5a1 1 0 0 1 -1 -1v-4.5" />
-              </svg>
-              Analytics</a>
+              Perfil
+            </a>
+
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="./settings.html">Settings &amp; Privacy</a>
-            <a class="dropdown-item" href="#">Help</a>
-            <a class="dropdown-item" href="./sign-in.html">Sign out</a>
+            <a class="dropdown-item" href="./settings.html">Configurações</a>
+            <form @submit.prevent="logout">
+              <button type="submit" class="dropdown-item">
+                Terminar Sessão
+              </button>
+            </form>
           </div>
         </div>
         <!-- END USER MENU -->
       </div>
 
-
-
-
       <!-- END NAVBAR MENU -->
 
-      <!-- END NAVBAR MENU -->
     </div>
 
   </header>
