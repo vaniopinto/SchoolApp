@@ -1,5 +1,4 @@
 <template>
-
   <!-- BEGIN NAVBAR  -->
   <header class="navbar navbar-expand-md d-none d-lg-flex d-print-none">
     <div class="container-xl">
@@ -9,8 +8,8 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <!-- END NAVBAR TOGGLER -->
-      <div class="navbar-nav flex-row order-md-last">
-        <div class="d-none d-md-flex me-3">
+      <div class="navbar-nav flex-row order-md-last ms-auto">
+        <div class="d-none d-md-flex">
           <!-- BEGIN THEME TOGGLE -->
           <div class="nav-item">
             <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Enable dark mode"
@@ -34,11 +33,7 @@
             </a>
           </div>
           <!-- END THEME TOGGLE -->
-          
-          <!-- BEGIN NOTIFICATIONS -->
-          
-            <!-- BEGIN NAVBAR NOTIFICATIONS -->
-           
+
           <!-- END LANGUAGE SELECTOR -->
         </div>
         <!-- BEGIN USER MENU -->
@@ -76,15 +71,15 @@
         </div>
         <!-- END USER MENU -->
       </div>
-           
-                
 
-          
-          <!-- END NAVBAR MENU -->
-        
-        <!-- END NAVBAR MENU -->
-      </div>
-  
+
+
+
+      <!-- END NAVBAR MENU -->
+
+      <!-- END NAVBAR MENU -->
+    </div>
+
   </header>
   <!-- END NAVBAR  -->
 </template>

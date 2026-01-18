@@ -71,18 +71,18 @@ onMounted(() => {
     <form class="offcanvas offcanvas-start offcanvas-narrow" tabindex="-1" id="offcanvas-settings" role="dialog"
       aria-modal="true" aria-labelledby="offcanvas-settings-title">
       <div class="offcanvas-header">
-        <h2 class="offcanvas-title" id="offcanvas-settings-title">Theme Settings</h2>
+        <h2 class="offcanvas-title" id="offcanvas-settings-title">Personalizar cores</h2>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body d-flex flex-column">
         <div>
           <div class="mb-4">
-            <label class="form-label">Modo de Cor</label>
-            <p class="form-hint">Escolhe o modo de cor do seu aplicativo.</p>
+            <label class="form-label">Tema</label>
+            <p class="form-hint">Escolhe o tema do seu aplicativo.</p>
             <label class="form-check">
               <div class="form-selectgroup-item">
                 <input type="radio" name="theme" value="light" class="form-check-input" checked />
-                <div class="form-check-label">Branco</div>
+                <div class="form-check-label">Claro</div>
               </div>
             </label>
             <label class="form-check">
@@ -94,7 +94,7 @@ onMounted(() => {
           </div>
           <div class="mb-4">
             <label class="form-label">Esquema de Cor</label>
-            <p class="form-hint"> O mode de cor perfeito para a tua aplicação.</p>
+            <p class="form-hint"> O modo de cor perfeito para a tua aplicação.</p>
             <div class="row g-2">
               <div class="col-auto">
                 <label class="form-colorinput">
@@ -172,7 +172,7 @@ onMounted(() => {
           </div>
           <div class="mb-4">
             <label class="form-label">Família tipográfica</label>
-            <p class="form-hint"> Escolhe a familia de fonte que cabe na tua aplicação.\</p>
+            <p class="form-hint">Escolhe a família de fonte que cabe na tua aplicação.</p>
             <div>
               <label class="form-check">
                 <div class="form-selectgroup-item">
@@ -202,24 +202,12 @@ onMounted(() => {
           </div>
           <div class="mb-4">
             <label class="form-label">Base do tema</label>
-            <p class="form-hint">Escolhe o tom de cinza do seu aplicativo .</p>
+            <p class="form-hint">Escolhe o tom de cinza do seu aplicativo.</p>
             <div>
               <label class="form-check">
                 <div class="form-selectgroup-item">
-                  <input type="radio" name="theme-base" value="slate" class="form-check-input" />
-                  <div class="form-check-label">Slate</div>
-                </div>
-              </label>
-              <label class="form-check">
-                <div class="form-selectgroup-item">
                   <input type="radio" name="theme-base" value="gray" class="form-check-input" checked />
-                  <div class="form-check-label">Gray</div>
-                </div>
-              </label>
-              <label class="form-check">
-                <div class="form-selectgroup-item">
-                  <input type="radio" name="theme-base" value="zinc" class="form-check-input" />
-                  <div class="form-check-label">Zinco</div>
+                  <div class="form-check-label">Cinza</div>
                 </div>
               </label>
               <label class="form-check">
@@ -234,10 +222,22 @@ onMounted(() => {
                   <div class="form-check-label">Pedra</div>
                 </div>
               </label>
+              <label class="form-check">
+                <div class="form-selectgroup-item">
+                  <input type="radio" name="theme-base" value="slate" class="form-check-input" />
+                  <div class="form-check-label">Slate</div>
+                </div>
+              </label>
+              <label class="form-check">
+                <div class="form-selectgroup-item">
+                  <input type="radio" name="theme-base" value="zinc" class="form-check-input" />
+                  <div class="form-check-label">Zinco</div>
+                </div>
+              </label>
             </div>
           </div>
           <div class="mb-4">
-            <label class="form-label">Arredondamento dos cantod</label>
+            <label class="form-label">Arredondamento dos cantos</label>
             <p class="form-hint">Escolha o fator de arredondamento da borda do seu aplicativo.</p>
             <div>
               <label class="form-check">
@@ -281,9 +281,9 @@ onMounted(() => {
               focusable="false" class="icon icon-1">
               <path d="M19.95 11a8 8 0 1 0 -.5 4m.5 5v-5h-5" />
             </svg>
-            Reset changes
+            Restaurar padrões
           </button>
-          <a href="#" class="btn btn-primary w-100" data-bs-dismiss="offcanvas"> Save </a>
+          <a href="#" class="btn btn-primary w-100" data-bs-dismiss="offcanvas"> Salvar </a>
         </div>
       </div>
     </form>
