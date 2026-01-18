@@ -12,4 +12,6 @@ Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
+Route::inertia('login', 'Auth/Login');
+
 require __DIR__.'/settings.php';

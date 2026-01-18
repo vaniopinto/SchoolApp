@@ -11,5 +11,8 @@ defineProps({
 
 <template>
   <Head :title="title"></Head>
-  <slot></slot>
+  <a href="#content" class="visually-hidden skip-link">Skip to main content</a>
+  <div class="page page-center">
+    <slot></slot>
+  </div>
 </template>
