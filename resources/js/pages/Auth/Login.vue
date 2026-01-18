@@ -1,9 +1,37 @@
 <script setup>
-import Layout from '@/layouts/Auth.vue';
+import Layout from "@/layouts/Auth.vue";
+import { store } from "@/routes/login";
+import { Link, useForm } from "@inertiajs/vue3";
+import InputError from "@/components/InputError.vue";
+
+console.log(store);
+
+
+defineProps({
+  canResetPassword: Boolean,
+  status: String,
+});
+
+const form = useForm({
+  email: "",
+  password: "",
+  remember: false,
+});
+
+const submit = () => {
+  form
+    .transform((data) => ({
+      ...data,
+      remember: form.remember ? "on" : "",
+    }))
+    .submit((store()), {
+      onFinish: () => form.reset("password"),
+    });
+};
 </script>
 
 <template>
-  <Layout>
+  <Layout title="Iniciar Sessão">
     <div class="container container-tight py-4">
       <div class="text-center mb-4">
         <!-- BEGIN NAVBAR LOGO --><a href="." aria-label="Tabler" class="navbar-brand navbar-brand-autodark"><svg
@@ -16,78 +44,66 @@ import Layout from '@/layouts/Auth.vue';
               fill-rule="evenodd" clip-rule="evenodd" fill="#4a4a4a" />
           </svg></a><!-- END NAVBAR LOGO -->
       </div>
+
       <div class="card card-md">
         <div class="card-body">
-          <h2 class="h2 text-center mb-4">Login to your account</h2>
-          <form action="./" method="get" autocomplete="off" novalidate>
+          <h2 class="h2 text-center mb-4">Iniciar Sessão</h2>
+
+          <form @submit.prevent="submit">
             <div class="mb-3">
-              <label class="form-label">Email address</label>
-              <input type="email" class="form-control" placeholder="your@email.com" autocomplete="off" />
+              <label class="form-label">E-mail ou código</label>
+              <input v-model="form.email" type="email" :class="{ 'is-invalid': form.errors.email }" class="form-control"
+                placeholder="exemplo@email.com" required autofocus autocomplete="username" />
+
+              <InputError :message="form.errors.email" />
             </div>
+
             <div class="mb-2">
               <label class="form-label">
-                Password
+                Senha
                 <span class="form-label-description">
-                  <a href="./forgot-password.html">I forgot password</a>
+                  <Link v-if="canResetPassword" :href="route('password.request')">
+                    Esqueci a minha senha
+                  </Link>
                 </span>
               </label>
+
               <div class="input-group input-group-flat">
-                <input type="password" class="form-control" placeholder="Your password" autocomplete="off" />
+                <input v-model="form.password" type="password" :class="{ 'is-invalid': form.errors.password }"
+                  class="form-control" placeholder="Senha" required autocomplete="current-password" />
+
                 <span class="input-group-text">
                   <a href="#" class="link-secondary" title="Show password"
-                    data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler.io/icons/icon/eye -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      aria-hidden="true" focusable="false" class="icon icon-1">
+                    data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                      stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                       <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
                       <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
-                    </svg></a>
+                    </svg>
+                  </a>
                 </span>
               </div>
+
+              <InputError :message="form.errors.password" />
             </div>
+
             <div class="mb-2">
               <label class="form-check">
-                <input type="checkbox" class="form-check-input" />
-                <span class="form-check-label">Remember me on this device</span>
+                <input v-model="form.remember" type="checkbox" class="form-check-input" name="remember" />
+                <span class="form-check-label">Manter sessão iniciada</span>
               </label>
             </div>
+
             <div class="form-footer">
-              <button type="submit" class="btn btn-primary w-100">Sign in</button>
+              <button type="submit" class="btn btn-primary w-100" :class="{ 'opacity-25': form.processing }"
+                :disabled="form.processing">
+                Iniciar Sessão
+              </button>
             </div>
           </form>
         </div>
-        <div class="hr-text">or</div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col">
-              <a href="#" class="btn btn-4 w-100">
-                <!-- Download SVG icon from http://tabler.io/icons/icon/brand-github -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  aria-hidden="true" focusable="false" class="icon text-github icon-2">
-                  <path
-                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-                </svg>
-                Login with Github
-              </a>
-            </div>
-            <div class="col">
-              <a href="#" class="btn btn-4 w-100">
-                <!-- Download SVG icon from http://tabler.io/icons/icon/brand-x -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  aria-hidden="true" focusable="false" class="icon text-x icon-2">
-                  <path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" />
-                  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
-                </svg>
-                Login with X
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
-      <div class="text-center text-secondary mt-3">Don't have account yet? <a href="./sign-up.html" tabindex="-1">Sign
-          up</a></div>
     </div>
   </Layout>
 </template>

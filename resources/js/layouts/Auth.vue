@@ -1,4 +1,5 @@
 <script setup>
+import ThemeSettings from '@/components/ThemeSettings.vue';
 import { Head } from '@inertiajs/vue3';
 
 defineProps({
@@ -15,4 +16,6 @@ defineProps({
   <div class="page page-center">
     <slot></slot>
   </div>
+
+  <ThemeSettings />
 </template>
